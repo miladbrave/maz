@@ -58,26 +58,6 @@
                                                         @csrf
                                                         @method('PATCH')
                                                         <div class="row">
-                                                            <div class="clearfix">
-                                                                <div
-                                                                    class="radio radio-inline radio-replace radio-success">
-                                                                    <input type="radio" name="delivery"
-                                                                           @if(is_null($userlist->receive) or $userlist->receive == "باربری")
-                                                                           checked
-                                                                           @endif
-                                                                           value="باربری">
-                                                                    <label>باربری</label>
-                                                                </div>
-                                                                <div
-                                                                    class="radio radio-inline radio-replace radio-danger">
-                                                                    <input type="radio" name="delivery"
-                                                                           @if($userlist->receive == "تیپاکس")
-                                                                           checked
-                                                                           @endif
-                                                                           value="تیپاکس">
-                                                                    <label>تیپاکس</label>
-                                                                </div>
-                                                            </div>
                                                             <input class="form-group" name="shenase" type="text"
                                                                    value="{{$userlist->shenase}}">
                                                             <input class="btn btn-success" type="submit" value="ثبت">

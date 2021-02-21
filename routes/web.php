@@ -37,8 +37,8 @@ Route::any('paypack_callback',[App\Http\Controllers\front\PayController::class, 
 //Route::get('add_cart_download/{id}','front\HomeController@addcartdownload')->name('add.cart.download');
 
 
-Route::group(['prefix'=>'administrator'], function () {
-//Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
+// Route::group(['prefix'=>'administrator'], function () {
+Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
     Route::get('/', [App\Http\Controllers\back\DashboardController::class, 'index'])->name('administrator');
     Route::resource('admin', App\Http\Controllers\back\AdminController::class);
     Route::resource('product', App\Http\Controllers\back\ProductController::class);

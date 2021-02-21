@@ -535,7 +535,7 @@
             </div>
             <div class="block-products__body">
                 <div class="block-products__list">
-                    @foreach($products as $product)
+                    @foreach($products->take(6) as $product)
                         <div class="block-products__list-item mt-5">
                             <div class="product-card">
                                 <div class="product-card__image">
@@ -678,7 +678,7 @@
                     <div class="post-card">
                         <div class="post-card__image">
                             <a href="{{route('downloadvideo',1)}}">
-                                <img src="{{('/front/image/m1.jpg')}}" alt="">
+                                <img src="{{('/front/image/m1.jpg')}}" alt="" style="height:280px">
                             </a>
                         </div>
                         <div class="post-card__info">
@@ -691,7 +691,7 @@
                     <div class="post-card">
                         <div class="post-card__image">
                             <a href="{{route('downloadvideo',2)}}">
-                                <img src="{{('/front/image/m2.jpg')}}" alt="">
+                                <img src="{{('/front/image/B.jpg')}}" alt="" style="height:280px">
                             </a>
                         </div>
                         <div class="post-card__info">
@@ -869,5 +869,6 @@
             </div>
         </div>
     </div>
+
 
 @endsection

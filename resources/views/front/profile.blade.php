@@ -62,7 +62,7 @@
                             <div class="dashboard">
                                 <div class="dashboard__profile card profile-card">
                                     <div class="card-body profile-card__body">
-                                        <div class="profile-card__avatar"><img src="/front/images/avatars/avatar-3.jpg"
+                                        <div class="profile-card__avatar"><img src="/front/image/p2.png"
                                                                                alt=""></div>
                                         <div class="profile-card__name">{{auth()->user()->fname}}</div>
                                         <div class="profile-card__email">{{auth()->user()->email}}</div>

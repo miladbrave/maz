@@ -4151,7 +4151,7 @@ screen and (-ms-high-contrast:active) {
 	}
 }
 .nav-panel {
-	height: 54px;
+	height: 75px;
 	background: #ffd333;
 	box-shadow: 0 1px rgba(0, 0, 0, .04), inset 0 -1px rgba(0, 0, 0, .04);
 	color: #3d464d

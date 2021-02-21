@@ -230,22 +230,22 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="checkout__agree form-group">
-                                        <div class="form-check"><span class="form-check-input input-check"><span
-                                                    class="input-check__body"><input class="input-check__input"
-                                                                                     type="checkbox"
-                                                                                     id="checkout-terms"> <span
-                                                        class="input-check__box"></span>
-											<svg class="input-check__icon" width="9px" height="7px">
-												<use xlink:href="/front/images/sprite.svg#check-9x7"></use>
-											</svg>
-											</span>
-											</span>
-                                            <label class="form-check-label" for="checkout-terms">من <a target="_blank"
-                                                                                                       href="terms-and-conditions.html">قوانین
-                                                    و مقررات</a> را خوانده و موافقم *</label>
-                                        </div>
-                                    </div>
+{{--                                    <div class="checkout__agree form-group">--}}
+{{--                                        <div class="form-check"><span class="form-check-input input-check"><span--}}
+{{--                                                    class="input-check__body"><input class="input-check__input"--}}
+{{--                                                                                     type="checkbox"--}}
+{{--                                                                                     id="checkout-terms"> <span--}}
+{{--                                                        class="input-check__box"></span>--}}
+{{--											<svg class="input-check__icon" width="9px" height="7px">--}}
+{{--												<use xlink:href="/front/images/sprite.svg#check-9x7"></use>--}}
+{{--											</svg>--}}
+{{--											</span>--}}
+{{--											</span>--}}
+{{--                                            <label class="form-check-label" for="checkout-terms">من <a target="_blank"--}}
+{{--                                                                                                       href="terms-and-conditions.html">قوانین--}}
+{{--                                                    و مقررات</a> را خوانده و موافقم *</label>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <button type="submit" class="btn btn-primary btn-xl btn-block">پرداخت</button>
                                 </div>
                             </div>
@@ -265,7 +265,7 @@
         vm = new Vue({
             el: '#app3',
             data: {
-                selected: "150000"
+                selected: "250000"
             },
             computed: {
                 paytotal: function () {

@@ -228,13 +228,13 @@
                                                     <div class="dropcart__product">
                                                         <div class="dropcart__product-image">
                                                             @if(isset($product['item']->photos->first()->path))
-                                                                <a href="{{route('product.self',$product['item']->id)}}">
+                                                                <a href="{{route('product.self',$product['item']->slug)}}">
                                                                     <img
                                                                         src="{{asset($product['item']->photos->first()->path)}}"
                                                                         alt="{{$product['item']->name}}">
                                                                 </a>
                                                             @else
-                                                                <a href="{{route('product.self',$product['item']->id)}}">
+                                                                <a href="{{route('product.self',$product['item']->slug)}}">
                                                                     <img
                                                                         src="{{asset('front/image/pro.jpg')}}"
                                                                         alt="{{$product['item']->name}}">
@@ -303,16 +303,17 @@
             </div>
         </div>
     </header>
-    <!-- mobile site__header / end -->
-    <!-- desktop site__header -->
     <header class="site__header d-lg-block d-none">
         <div class="site-header">
-            <!-- .topbar -->
             <div class="site-header__topbar topbar">
                 <div class="topbar__container container">
                     <div class="topbar__row">
                         <span> <i class="fa fa-phone text-danger"> </i> 09364113060</span>
-                        <span> <i class="fa fa-envelope text-danger mr-3"> </i> maztabriz@gmail.com</span>
+                        <span> <i class="fa fa-envelope text-danger mr-3"> </i> MazTabriz@gmail.com</span>
+                        <span class="mr-4 text-danger"> |</span>
+                        <a href="https://www.instagram.com/tabrizrobot.ir/"> <i class="fab fa-instagram text-danger mr-3" aria-hidden="true"> </i></a>
+                        <a href="https://t.me/TabrizRobotSupport"> <i class="fab fa-telegram mr-3" aria-hidden="true"> </i></a>
+                        <a href="https://wa.me/message/GTZGGPWARSS7M1"> <i class="fab fa-whatsapp text-success mr-3" aria-hidden="true"> </i></a>
                         <div class="topbar__spring"></div>
                         <div class="topbar__item">
                             <div class="topbar-dropdown">
@@ -358,7 +359,7 @@
                 </div>
             </div>
 
-            <div class="site-header__nav-panel">
+            <div class="site-header__nav-panel mb-3">
                 <div class="nav-panel">
                     <div class="nav-panel__container container">
                         <div class="nav-panel__row">
@@ -458,13 +459,13 @@
                                                     <div class="dropcart__product">
                                                         <div class="dropcart__product-image">
                                                             @if(isset($product['item']->photos->first()->path))
-                                                                <a href="{{route('product.self',$product['item']->id)}}">
+                                                                <a href="{{route('product.self',$product['item']->slug)}}">
                                                                     <img
                                                                         src="{{asset($product['item']->photos->first()->path)}}"
                                                                         alt="{{$product['item']->name}}">
                                                                 </a>
                                                             @else
-                                                                <a href="{{route('product.self',$product['item']->id)}}">
+                                                                <a href="{{route('product.self',$product['item']->slug)}}">
                                                                     <img
                                                                         src="{{asset('front/image/pro.jpg')}}"
                                                                         alt="{{$product['item']->name}}">

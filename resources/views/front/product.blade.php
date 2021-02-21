@@ -66,7 +66,7 @@
                                         <span class="text-danger">ناموجود</span>
                                     @endif
                                 </li>
-                                <li> برند: {{\App\Brand::where('id',$product->brand_id)->first()->title}}</li>
+                                <li> برند: {{\App\Models\Brand::where('id',$product->brand_id)->first()->title}}</li>
                                 <li> شناسه: {{$product->sku}}</li>
                             </ul>
                         </div>

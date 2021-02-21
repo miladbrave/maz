@@ -94,6 +94,8 @@
             $(this).remove();
         });
     }, 3000);
+    
+
 </script>
 
 @yield('js')

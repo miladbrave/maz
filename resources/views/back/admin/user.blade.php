@@ -18,10 +18,11 @@
                                     <table class="table table-striped table-border table-hover">
                                         <thead>
                                         <tr>
-                                            <th>نام</th>
-                                            <th>نام خانوادگی</th>
-                                            <th>ایمیل</th>
-                                            <th>ابزار</th>
+                                            <th class="text-center">نام</th>
+                                            <th class="text-center">نام خانوادگی</th>
+                                            <th class="text-center">ایمیل</th>
+                                            <th class="text-center">تغییر رمز</th>
+                                            <th class="text-center">ابزار</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -30,6 +31,18 @@
                                                 <td>{{$user->fname}}</td>
                                                 <td>{{$user->lname}}</td>
                                                 <td>{{$user->email}}</td>
+                                                <td>
+                                                    <form method="post"
+                                                          action="{{route('admin.update',$user->id)}}"
+                                                          style="display: inline">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <div class="row">
+                                                            <input class="form-group" name="password" type="text">
+                                                            <input class="btn btn-success" type="submit" value="ثبت">
+                                                        </div>
+                                                    </form>
+                                                </td>
                                                 <td>
                                                     <form method="post"
                                                           action="{{route('admin.destroy',$user->email)}}"

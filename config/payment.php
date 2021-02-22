@@ -193,7 +193,7 @@ return [
             'zaringateApiPaymentUrl' => 'https://www.zarinpal.com/pg/StartPay/:authority/ZarinGate',
             'zaringateApiVerificationUrl' => 'https://ir.zarinpal.com/pg/services/WebGate/wsdl',
 
-            'mode' => 'normal', // can be normal, sandbox, zaringate
+            'mode' => 'sandbox', // can be normal, sandbox, zaringate
             'merchantId' => '',
             'callbackUrl' => 'http://yoursite.com/path/to',
             'description' => 'payment using zarinpal',
@@ -203,10 +203,8 @@ return [
             'apiPurchaseUrl' => 'https://gateway.zibal.ir/v1/request',
             'apiPaymentUrl' => 'https://gateway.zibal.ir/start/',
             'apiVerificationUrl' => 'https://gateway.zibal.ir/v1/verify',
-
             'mode' => 'normal', // can be normal, direct
-
-            'merchantId' => '',
+            'merchantId' => 'zibal',
             'callbackUrl' => 'http://yoursite.com/path/to',
             'description' => 'payment using zibal',
         ],

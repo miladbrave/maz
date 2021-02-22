@@ -5,6 +5,7 @@ namespace App\Http\Controllers\back;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -38,9 +39,12 @@ class AdminController extends Controller
         return back();
     }
 
-    public function update(Request $request, $user)
+    public function update(Request $request, $id)
     {
-
+        $user = User::find($id);
+       $user->password = Hash::make($request->password);
+       $user->save();
+       return back();
     }
 
     public function destroy($id)

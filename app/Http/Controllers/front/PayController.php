@@ -43,12 +43,12 @@ class PayController extends Controller
     {
         try {
             $pay = Pay::where('transaction_id', $request->RefId)->latest()->first();
-        
+
             if (isset($pay)) {
                 $price = (int)$pay->price;
 
                 $payment = Payment::amount($price)->transactionId($pay->transaction_id)->verify();
-                
+
                 if ($request->ResCode == 0) {
                     $pay->status = 'success';
                     $pay->payment_date = Carbon::now();
@@ -56,7 +56,7 @@ class PayController extends Controller
                     $pay->save();
                 }
             }
-            
+
             return redirect()->route('payStatus');
         } catch (InvalidPaymentException $exception) {
             $pay->status = 'failed';
@@ -84,7 +84,7 @@ class PayController extends Controller
                 $userlist->status = "success";
                 $userlist->save();
                 HomeController::sendmail(auth()->user()->id);
-                
+
                 return view('front.callback', compact( 'pays'))->with('success', 'error');
             }
             else{
@@ -93,4 +93,5 @@ class PayController extends Controller
         }
         return view('front.callback')->with('error');
     }
+
 }

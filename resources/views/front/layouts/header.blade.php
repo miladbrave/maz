@@ -309,7 +309,7 @@
                 <div class="topbar__container container">
                     <div class="topbar__row">
                         <span> <i class="fa fa-phone text-danger"> </i> 09364113060</span>
-                        <span> <i class="fa fa-envelope text-danger mr-3"> </i> MazTabriz@gmail.com</span>
+                        <span> <i class="fa fa-envelope text-danger mr-3"> </i> MazTabriz@Gmail.com</span>
                         <span class="mr-4 text-danger"> |</span>
                         <a href="https://www.instagram.com/tabrizrobot.ir/"> <i class="fab fa-instagram text-danger mr-3" aria-hidden="true"> </i></a>
                         <a href="https://t.me/TabrizRobotSupport"> <i class="fab fa-telegram mr-3" aria-hidden="true"> </i></a>

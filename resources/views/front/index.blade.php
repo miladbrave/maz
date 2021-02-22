@@ -674,28 +674,28 @@
 
 
             <div class="block-posts__slider row">
-                <div class="col-lg-4">
-                    <div class="post-card">
+                <div class="col-lg-5 col-sm-12 col-xs-12">
+                    <div class="post-card videoimage">
                         <div class="post-card__image">
                             <a href="{{route('downloadvideo',1)}}">
                                 <img src="{{('/front/image/m1.jpg')}}" alt="" style="height:280px">
                             </a>
                         </div>
                         <div class="post-card__info">
-                            <div class="post-card__name"><a href="{{route('downloadvideo',2)}}">ویدیو آموزشی سیستم ساده
+                            <div class="post-card__name"><a href="{{route('downloadvideo',2)}}">دانلود ویدیو آموزشی سیستم ساده
                                     حرکتی</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="post-card">
-                        <div class="post-card__image">
+                <div class="col-lg-5 col-sm-12 col-xs-12">
+                    <div class="post-card videoimage">
+                        <div class="post-card__image text-center">
                             <a href="{{route('downloadvideo',2)}}">
                                 <img src="{{('/front/image/B.jpg')}}" alt="" style="height:280px">
                             </a>
                         </div>
                         <div class="post-card__info">
-                            <div class="post-card__name"><a href="{{route('downloadvideo',1)}}">ویدیو آموزشی ساخت
+                            <div class="post-card__name text-center"><a href="{{route('downloadvideo',1)}}">دانلود ویدیو آموزشی ساخت
                                     جرثقیل</a></div>
                         </div>
                     </div>

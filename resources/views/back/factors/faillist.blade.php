@@ -13,8 +13,6 @@
                                 لیست فاکتور ها
                                 <hr>
                             </h1>
-
-
                             <div class="panel-body wt-panel-body">
                                 <div class="table-responsive">
                                     <table class="table table-striped table-border table-hover">
@@ -28,10 +26,9 @@
                                             <th class="text-center">کدپستی</th>
                                             <th class="text-center">تلفن</th>
                                             <th class="text-center">هزینه حمل</th>
-{{--                                            <th class="text-center">وضعیت</th>--}}
+                                            <th class="text-center">وضعیت</th>
                                             <th class="text-center">تاریخ</th>
                                             <th class="text-center">جزئیات</th>
-                                            <th class="text-center">شناسه</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -45,7 +42,7 @@
                                                 <td class="text-center">{{\App\Models\User::where('id',$userlist->user_id)->first()['postcode']}}</td>
                                                 <td class="text-center">{{\App\Models\User::where('id',$userlist->user_id)->first()['phone']}}</td>
                                                 <td class="text-center">{{number_format($userlist->receiveprice)}}</td>
-{{--                                                <td class="text-center">{{$userlist->status}}</td>--}}
+                                                <td class="text-center">{{$userlist->status}}</td>
                                                 <td class="text-center">{{Verta::instance($userlist->created_at)->format('%B %d، %Y')}}</td>
                                                 <td class="text-center">
                                                     <button class="btn btn-default btn-rounded btn-sm"
@@ -53,23 +50,6 @@
                                                             type="button"><i class="fa fa-envelope"></i> نمایش
                                                     </button>
                                                     <br>
-                                                    <a class="btn btn-danger btn-sm btn-rounded"
-                                                       style="margin-top: 10%"
-                                                        href="{{route('generate_pdf',$userlist->user_id)}}"><i
-                                                            class="fa fa-print"></i> چاپ </a>
-                                                </td>
-                                                <td class="text-center">
-                                                    <form method="post"
-                                                          action="{{route('factors.update',[$userlist->factor])}}"
-                                                          style="display: inline">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        <div class="row">
-                                                            <input class="form-group" name="shenase" type="text" style="width: 80%;margin-right: 5%"
-                                                                   value="{{$userlist->shenase}}">
-                                                            <input class="btn btn-success" type="submit" value="ثبت">
-                                                        </div>
-                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -80,8 +60,6 @@
                                     {{ $userlists->links() }}
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

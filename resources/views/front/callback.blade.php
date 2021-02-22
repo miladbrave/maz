@@ -23,7 +23,7 @@
                         <td> نام کاربری</td>
                         @if(isset($pays))
                             @if($pays->status == 'success' && Auth::check())
-                                <td>{{Auth()->user()->fname }}{{Auth()->user()->lname}}</td>
+                                <td>{{Auth()->user()->fname }} {{Auth()->user()->lname}}</td>
                             @else
                                 <td> {{$pays->name}}</td>
                             @endif

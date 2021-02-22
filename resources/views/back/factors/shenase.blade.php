@@ -25,7 +25,7 @@
 
 
 <h1 style="text-align: center">.از خرید شما متشکریم</h1>
-<h3 style="text-align: center">آذر یدک ریو</h3>
+<h3 style="text-align: center">تبریز ربات (MAZ)</h3>
 
 
 </body>

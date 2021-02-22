@@ -9665,6 +9665,7 @@ screen and (-ms-high-contrast:active) {
 .search a{color: white}
 .search::placeholder{color: #4a4a4a}
 .list-group-item{border: 1px solid #dddddd}
+.videoimage{width: 50%}
 @media screen and (max-width: 520px){
     .slide img{height: 325px}
     .list-group-item{border: 1px solid #dddddd}

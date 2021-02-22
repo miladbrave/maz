@@ -50,9 +50,9 @@
                         </div>
                         <div class="product__info">
                             <h1 class="product__name">{{$product->name}}</h1>
-                            <div class="product__description">
-                                {!!  Str::limit($product->description,150)!!}
-                            </div>
+                            {{--                            <div class="product__description">--}}
+                            {{--                                {!!  Str::limit($product->description,150)!!}--}}
+                            {{--                            </div>--}}
                             <hr>
                             <ul class="">
                                 <li class="product__meta-availability">موجودی:
@@ -127,11 +127,16 @@
                             <div class="spec">
                                 <h3 class="spec__header">مشخصات فنی</h3>
                                 <div class="spec__section">
-                                    @foreach($product->attributevalus as $attributes)
-                                        <div class="spec__name">{{$attributes->attribute->title}}</div>
-                                        <div class="spec__value">{{$attributes->title}}</div>
-                                    @endforeach
-
+                                    <table class="table table-striped">
+                                        <tbody>
+                                        @foreach($product->attributevalus as $attributes)
+                                            <tr>
+                                                <td>{{$attributes->attribute->title}}</td>
+                                                <td>{{$attributes->title}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                     <div class="spec__disclaimer">برای اطلاعات بیشتر ویا در صورت داشتن سوالی در مورد
                                         اجناس می توانید با فروشگاه در تماس باشید.
                                     </div>

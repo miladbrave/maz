@@ -410,4 +410,16 @@ class HomeController extends Controller
             return response()->download(getcwd() . '/front/image/video/simple.mp4', 'سیستم ساده حرکتی');
 
     }
+
+    public static function registeremail($id)
+    {
+        $user = User::find($id);
+        Mail::send('front/registeremail',
+            [
+                'user' => $user,
+            ], function ($m) use ($user) {
+                $m->from('info@tabrizrobot.ir', 'مبتکران آذر ذهن');
+                $m->to($user->email, $user->name)->subject('ثبت نام کاربر (tabrizrobot.ir)');
+            });
+    }
 }

@@ -36,7 +36,6 @@
         <th style=" border: 1px solid black">قیمت محصول</th>
         <th style=" border: 1px solid black">تعداد محصول</th>
         <th style=" border: 1px solid black">نام محصول</th>
-        <th style=" border: 1px solid black">تصویر</th>
     </tr>
 
     @foreach($purchlists as $purch)
@@ -48,17 +47,6 @@
                     </td>
                     <td style=" border: 1px solid black;text-align: center;width: 20%">{{$pur->count}}تعداد</td>
                     <td style=" border: 1px solid black;text-align: center;width: 20%"> {{$p->name}}</td>
-                    <td style=" border: 1px solid black;text-align: right;width: 30%">
-                        @if(isset($p->photos->first()->path))
-                            <img
-                                src="{{asset($p->photos->first()->path)}}" alt="" width="60%"
-                                height="100px"></td>
-                    @else
-                        <img
-                            src="{{asset('/front/img/1.jpg')}}"
-                            alt="آذر یدک ریو" title="آذر یدک ریو"
-                            class="img-responsive"/>
-                    @endif
                 </tr>
             @endforeach
         @endforeach
@@ -67,7 +55,11 @@
 </table>
 
 <h1 style="text-align: center">.از خرید شما متشکریم</h1>
-<h3 style="text-align: center">آذر یدک ریو</h3>
+<div style="text-align: center">
+    <img
+        src="{{asset('/front/image/logo1.jpg')}}" alt="" width="60%" height="150px">
+</div>
+
 
 <h5 style="text-align: center">شماره مرسوله برای شما فرستاده خواهد شد.</h5>
 

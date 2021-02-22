@@ -73,6 +73,7 @@
             <a href="collapsed-sidebar.html"><i class="fa fa-list"></i><span class="title">فاکتور ها</span></a>
             <ul class="nav collapse">
                 <li><a href="{{route('factors.index')}}"><span class="title">لیست فاکتور ها</span></a></li>
+                <li><a href="{{route('factors.show',1)}}"><span class="title">لیست فاکتور ها ناموفق</span></a></li>
             </ul>
         </li>
 {{--        <li class="has-sub">--}}

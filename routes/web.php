@@ -36,7 +36,6 @@ Route::any('paypack_callback',[App\Http\Controllers\front\PayController::class, 
 //Route::get('downloads','front\HomeController@downloads')->name('downloads');
 //Route::get('add_cart_download/{id}','front\HomeController@addcartdownload')->name('add.cart.download');
 
-
 // Route::group(['prefix'=>'administrator'], function () {
 Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
     Route::get('/', [App\Http\Controllers\back\DashboardController::class, 'index'])->name('administrator');
@@ -56,6 +55,7 @@ Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
     Route::get('photoDestroy/{id}',[App\Http\Controllers\back\ProductController::class, 'photoDestroy'])->name('photoDestroy');
     Route::post('sendmessagemain',[App\Http\Controllers\back\DashboardController::class, 'sendmain'])->name('messages.send.main');
     Route::get('mainmessage',[App\Http\Controllers\back\DashboardController::class, 'mainmessage'])->name('mainmessage');
+    Route::get('extend_factor/{id}',[App\Http\Controllers\back\FactorController::class, 'generate_pdf'])->name('generate_pdf');
 });
 
 Route::group(['prefix'=>'api'], function () {

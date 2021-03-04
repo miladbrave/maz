@@ -23,7 +23,6 @@
                                             <th class="text-center">شماره محصول</th>
                                             <th class="text-center">نام محصول</th>
                                             <th class="text-center">قیمت</th>
-                                            <th class="text-center">توضیح</th>
                                             <th class="text-center">وضعیت</th>
                                             <th class="text-center">ابزار</th>
                                         </tr>
@@ -34,7 +33,6 @@
                                                 <td class="text-center">{{$product->sku}}</td>
                                                 <td class="text-center">{{$product->name}}</td>
                                                 <td class="text-center">{{$product->price}}</td>
-                                                <td class="text-center">{!!Str::limit( $product->description ,20)!!}</td>
                                                 <td class="text-center">{{$product->distribute}}</td>
                                                 <td class="text-center">
                                                     <form method="post"

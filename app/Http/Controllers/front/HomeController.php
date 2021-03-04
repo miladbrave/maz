@@ -12,6 +12,7 @@ use App\Models\Message;
 use App\Models\Product;
 use App\Models\Purchlist;
 use App\Models\Slider;
+use App\Models\Tag;
 use App\Models\User;
 use App\Models\Userlist;
 use Illuminate\Http\Request;
@@ -275,7 +276,7 @@ class HomeController extends Controller
                 'purchl' => $purchl,
             ], function ($m) use ($user) {
                 $m->from('info@tabrizrobot.ir', 'مبتکران آذر ذهن');
-                $m->to('milad.pourshoja@gmail.com', $user->name)->subject('فاکتور خرید(tabrizrobot.ir)');
+                $m->to('maztabriz@gmail.com', $user->name)->subject('فاکتور خرید(tabrizrobot.ir)');
             });
 
         return "ok";
@@ -421,5 +422,22 @@ class HomeController extends Controller
                 $m->from('info@tabrizrobot.ir', 'مبتکران آذر ذهن');
                 $m->to($user->email, $user->name)->subject('ثبت نام کاربر (tabrizrobot.ir)');
             });
+    }
+
+    public function tags($id = null)
+    {
+        if (isset($id)){
+            $category = Category::where('title','LIKE' , '%'.$id.'%')->first();
+            if (isset($category)){
+                return redirect()->route('category',$category->title);
+            }
+            elseif (!isset($category)){
+                $product = Product::where('slug','LIKE' , '%'.$id.'%')->first();
+                if (isset($product))
+                    return redirect()->route('product.self',$product->slug);
+            }
+        }
+        $tags = Tag::latest()->get();
+        return view('front.tags',compact('tags'));
     }
 }

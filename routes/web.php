@@ -28,6 +28,7 @@ Route::get('downloadVideos{id}',[App\Http\Controllers\front\HomeController::clas
 Route::get('payStatus',[App\Http\Controllers\front\PayController::class, 'payStatus'])->name('payStatus');
 Route::get('pay',[App\Http\Controllers\front\PayController::class, 'pay'])->name('pay');
 Route::any('paypack_callback',[App\Http\Controllers\front\PayController::class, 'paypack_callback'])->name('paypack_callback');
+Route::get('tags/{id?}',[App\Http\Controllers\front\HomeController::class, 'tags'])->name('tags');
 //Route::get('dirpay',[App\Http\Controllers\front\PayController::class, 'pay2'])->name('pay2');
 //Route::post('directpay','front\HomeController@direct')->name('directpay');
 //Route::get('blog','front\HomeController@blog')->name('blog');
@@ -51,6 +52,7 @@ Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
     Route::resource('download',App\Http\Controllers\back\DownloadController::class);
     Route::resource('blog',App\Http\Controllers\back\BlogController::class);
     Route::resource('factors',App\Http\Controllers\back\FactorController::class);
+    Route::resource('tags',App\Http\Controllers\back\TagController::class);
     Route::post('photo',[App\Http\Controllers\back\ProductController::class, 'photoStore'])->name('productPhoto');
     Route::get('photoDestroy/{id}',[App\Http\Controllers\back\ProductController::class, 'photoDestroy'])->name('photoDestroy');
     Route::post('sendmessagemain',[App\Http\Controllers\back\DashboardController::class, 'sendmain'])->name('messages.send.main');

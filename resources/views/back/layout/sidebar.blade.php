@@ -76,6 +76,12 @@
                 <li><a href="{{route('factors.show',1)}}"><span class="title">لیست فاکتور ها ناموفق</span></a></li>
             </ul>
         </li>
+        <li class="has-sub">
+            <a href="collapsed-sidebar.html"><i class="fa fa-tags"></i><span class="title">تگ ها</span></a>
+            <ul class="nav collapse">
+                <li><a href="{{route('tags.index')}}"><span class="title">لیست تگ ها</span></a></li>
+            </ul>
+        </li>
 {{--        <li class="has-sub">--}}
 {{--            <a href="collapsed-sidebar.html"><i class="fa fa-bookmark"></i><span class="title">بلاگ</span></a>--}}
 {{--            <ul class="nav collapse">--}}

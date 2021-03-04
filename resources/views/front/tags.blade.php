@@ -1,6 +1,5 @@
 @extends('front.layouts.master')
 @section('content')
-
     <div class="site__body">
         <div class="block about-us">
             <div class="about-us__image"></div>
@@ -20,14 +19,11 @@
                                     می‌باشند.
                                 </p>
                             </div>
+                            <hr>
                             <div class="about-us__team">
-                                <div class="about-us__teammates teammates">
-                                    <div class="teammates__item teammate">
-                                        <div class="teammate__avatar"><img
-                                                src="/front/image/robo.jpg"
-                                                alt=""></div>
-                                    </div>
-                                </div>
+                                @foreach($tags as $tag)
+                                    <a href="{{route('tags',$tag->title)}}" class="badge badge-danger">{{$tag->title}}</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -35,5 +31,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -675,30 +675,37 @@
 
             <div class="block-posts__slider row">
                 <div class="col-lg-5 col-sm-12 col-xs-12">
-                    <div class="post-card videoimage">
-                        <div class="post-card__image">
-                            <a href="{{route('downloadvideo',1)}}">
-                                <img src="{{('/front/image/m1.jpg')}}" alt="" style="height:280px">
-                            </a>
+                    <a href="{{route('downloadvideo',1)}}">
+                        <div class="post-card videoimage">
+                            <div class="post-card__image">
+
+                                <img src="{{('/front/image/m1.jpg')}}" alt="" style="height:280px;width:100%;border-radius: 15px">
+
+                            </div>
+                            <div class="post-card__info">
+                                <div class="post-card__name"><a href="{{route('downloadvideo',2)}}">دانلود ویدیو آموزشی
+                                        سیستم ساده
+                                        حرکتی</a></div>
+                            </div>
                         </div>
-                        <div class="post-card__info">
-                            <div class="post-card__name"><a href="{{route('downloadvideo',2)}}">دانلود ویدیو آموزشی سیستم ساده
-                                    حرکتی</a></div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="col-lg-5 col-sm-12 col-xs-12">
-                    <div class="post-card videoimage">
-                        <div class="post-card__image text-center">
-                            <a href="{{route('downloadvideo',2)}}">
-                                <img src="{{('/front/image/B.jpg')}}" alt="" style="height:280px">
-                            </a>
+                    <a href="{{route('downloadvideo',2)}}">
+                        <div class="post-card videoimage">
+                            <div class="post-card__image text-center">
+
+                                <img src="{{('/front/image/B.jpg')}}" alt="" style="height:280px;width:100%;border-radius: 10px">
+
+                            </div>
+                            <div class="post-card__info">
+                                <div class="post-card__name text-center"><a href="{{route('downloadvideo',1)}}">دانلود
+                                        ویدیو
+                                        آموزشی ساخت
+                                        جرثقیل</a></div>
+                            </div>
                         </div>
-                        <div class="post-card__info">
-                            <div class="post-card__name text-center"><a href="{{route('downloadvideo',1)}}">دانلود ویدیو آموزشی ساخت
-                                    جرثقیل</a></div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 
@@ -743,9 +750,9 @@
                                         <span class="fake-svg-icon"></span></button>
                                     <div class="product-card__image img">
                                         <a href="{{route('product.self',$product->slug)}}">
-                                            <img
-                                                src="{{asset($product->photos->first()->path)}}"
-                                                alt="{{$product->name}}"></a>
+                                            <img class="homeimg"
+                                                 src="{{asset($product->photos->first()->path)}}"
+                                                 alt="{{$product->name}}"></a>
                                     </div>
                                     <div class="product-card__info">
                                         <div class="product-card__name"><a
@@ -789,9 +796,9 @@
                                         <span class="fake-svg-icon"></span></button>
                                     <div class="product-card__image img">
                                         <a href="{{route('product.self',$product->slug)}}">
-                                            <img
-                                                src="{{asset($product->photos->first()->path)}}"
-                                                alt="{{$product->name}}"></a>
+                                            <img class="homeimg"
+                                                 src="{{asset($product->photos->first()->path)}}"
+                                                 alt="{{$product->name}}"></a>
                                     </div>
                                     <div class="product-card__info">
                                         <div class="product-card__name"><a
@@ -834,9 +841,9 @@
                                             <span class="fake-svg-icon"></span></button>
                                         <div class="product-card__image img">
                                             <a href="{{route('product.self',$product->slug)}}">
-                                                <img
-                                                    src="{{asset($product->photos->first()->path)}}"
-                                                    alt="{{$product->name}}"></a>
+                                                <img class="homeimg"
+                                                     src="{{asset($product->photos->first()->path)}}"
+                                                     alt="{{$product->name}}"></a>
                                         </div>
                                         <div class="product-card__info">
                                             <div class="product-card__name"><a
@@ -869,6 +876,4 @@
             </div>
         </div>
     </div>
-
-
 @endsection

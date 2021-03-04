@@ -132,6 +132,14 @@
                         </div>
                         <div class="mobile-links__item-sub-links" data-collapse-content>
                             <ul class="mobile-links mobile-links--level--2">
+                                @if(auth()->user()->admin == "admin")
+                                    <li class="mobile-links__item" data-collapse-item>
+                                        <div class="mobile-links__item-title">
+                                            <a href="{{route('administrator')}}" style="padding:5%"
+                                               class="mobile-links__item-link text-warning">دشبورد</a>
+                                        </div>
+                                    </li>
+                                @endif
                                 <li class="mobile-links__item" data-collapse-item>
                                     <div class="mobile-links__item-title">
                                         <a href="{{route('profile')}}" style="padding:5%"
@@ -333,6 +341,9 @@
                                     </button>
                                     <div class="topbar-dropdown__body" style="background-color: rgba(0,0,0,0.5)">
                                         <ul class="menu menu--layout--topbar">
+                                            @if(auth()->user()->admin == "admin")
+                                                <li><a class="text-white" href="{{route('administrator')}}">دشبورد</a></li>
+                                            @endif
                                             <li><a class="text-white" href="{{route('profile')}}">پروفایل</a></li>
                                             <li><a class="text-white" href="{{route('logout')}}" onclick="event.preventDefault();
                                                                                      document.getElementById('logout-form').submit();">خروج</a>

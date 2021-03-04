@@ -142,11 +142,7 @@
                                                     <div class="product-card__name"><a
                                                             href="{{route('product.self',$product->slug)}}">{{$product->name}}</a>
                                                     </div>
-                                                    <div class="product-card__rating">
-                                                        <div class="rating">
-                                                            {!! $product->description !!}
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                                 <div class="product-card__actions">
                                                     <div class="product-card__availability">موجودی:

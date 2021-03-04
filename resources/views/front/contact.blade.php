@@ -20,6 +20,11 @@
                     <h1>تماس با ما</h1></div>
             </div>
         </div>
+        @if(Session::has('message'))
+            <div class="alert alert-success container mt-3" style="width: 100%">
+                <div>{{ Session('success') }}</div>
+            </div>
+        @endif
         <div class="block">
             <div class="container">
                 <div class="card mb-0 contact-us">
@@ -69,22 +74,55 @@
                                             <div class="form-group col-md-6">
                                                 <label for="form-name">نام شما</label>
                                                 <input type="text" id="form-name" class="form-control"
-                                                       placeholder="نام شما">
+                                                       placeholder="نام شما" name="name">
+                                                @if ($errors->has('name'))
+                                                    <span class="help-block">
+                                                        <h6 class="text-danger">{{ $errors->first('name') }}</h6>
+                                                    </span>
+                                                @endif
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="form-email">ایمیل</label>
                                                 <input type="email" id="form-email" class="form-control"
-                                                       placeholder="آدرس ایمیل" dir="ltr">
+                                                       placeholder="آدرس ایمیل" dir="ltr" name="email">
+                                                @if ($errors->has('email'))
+                                                    <span class="help-block">
+                                                        <h6 class="text-danger">{{ $errors->first('email') }}</h6>
+                                                    </span>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="form-subject">موضوع</label>
                                             <input type="text" id="form-subject" class="form-control"
-                                                   placeholder="موضوع">
+                                                   placeholder="موضوع" name="title">
+                                            @if ($errors->has('title'))
+                                                <span class="help-block">
+                                                        <h6 class="text-danger">{{ $errors->first('title') }}</h6>
+                                                    </span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="form-message">پیام</label>
-                                            <textarea id="form-message" class="form-control" rows="4"></textarea>
+                                            <textarea id="form-message" class="form-control" rows="4" name="description"></textarea>
+                                            @if ($errors->has('description'))
+                                                <span class="help-block">
+                                                        <h6 class="text-danger">{{ $errors->first('description') }}</h6>
+                                                    </span>
+                                            @endif
+                                        </div>
+                                        {!! NoCaptcha::renderJs() !!}
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                {!! NoCaptcha::display() !!}
+                                            </div>
+                                            <div class="col-md-6">
+                                                @if ($errors->has('g-recaptcha-response'))
+                                                    <span class="help-block">
+                                                        <h6 class="text-danger">{{ $errors->first('g-recaptcha-response') }}</h6>
+                                                    </span>
+                                                @endif
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">ارسال پیام</button>
                                     </form>
@@ -96,6 +134,5 @@
             </div>
         </div>
     </div>
-
 
 @endsection

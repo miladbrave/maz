@@ -50,12 +50,12 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        if($user->admin == "user")
-            $user->delete();
+        if($user->admin == "user"){
+            $user->delete();}
 
-        if ($user->admin == "admin")
+        if ($user->admin == "admin"){
             $user->admin = "user";
-        $user->save();
+            $user->save();}
 
         return back();
     }

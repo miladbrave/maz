@@ -24,6 +24,8 @@
                                             <th class="text-center">نام محصول</th>
                                             <th class="text-center">قیمت</th>
                                             <th class="text-center">وضعیت</th>
+                                            <th class="text-center">تعداد</th>
+                                            <th class="text-center">موجودیت</th>
                                             <th class="text-center">ابزار</th>
                                         </tr>
                                         </thead>
@@ -32,8 +34,27 @@
                                             <tr>
                                                 <td class="text-center">{{$product->sku}}</td>
                                                 <td class="text-center">{{$product->name}}</td>
-                                                <td class="text-center">{{$product->price}}</td>
+                                                <td class="text-center">{{number_format($product->price)}}</td>
                                                 <td class="text-center">{{$product->distribute}}</td>
+                                                <td class="text-center">
+                                                    <form action="{{route('productCount',$product->id)}}" method="post">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <input type="text" class="form-control col-md-8"
+                                                                   name="count" value="{{$product->count}}"
+                                                                   style="height: 25px;width: 60%;margin-right: 5%">
+                                                            <button type="submit"
+                                                                    class="btn btn-success btn-sm col-md-3 col-md-offset-1">
+                                                                ثبت
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </td>
+                                                <td class="text-center">
+                                                    <input type="checkbox" @if($product->exist == 1) checked  @endif
+                                                    class="form-group" id="check{{$product->id}}"
+                                                           onchange="change({{$product->id}})">
+                                                </td>
                                                 <td class="text-center">
                                                     <form method="post"
                                                           action="{{route('product.destroy',$product->id)}}"
@@ -65,4 +86,23 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        function change($id) {
+            let checkbox = $('#check' + $id).is(":checked")
+            console.log(checkbox)
+            $.post('/api/exist', {
+                "_token": "{{ csrf_token() }}",
+                "id": $id,
+                "checkbox": checkbox,
+            })
+            // }, res => {
+            //     // $('.name').text(res.user.fname + ' ' + res.user.lname)
+            //
+            // })
+        }
+
+
+    </script>
 @endsection

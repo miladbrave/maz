@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Auth::routes();
-Route::get('/', [App\Http\Controllers\front\HomeController::class, 'index'])->name('home'); //
+Route::get('/', [App\Http\Controllers\front\HomeController::class, 'index'])->name('home')->middleware('visit'); //
 Route::get('/about', [App\Http\Controllers\front\HomeController::class, 'about'])->name('about'); //
 Route::get('/cart', [App\Http\Controllers\front\HomeController::class, 'cart'])->name('cart.self'); //
 Route::get('/category/{id}/{sort?}', [App\Http\Controllers\front\HomeController::class, 'category'])->name('category'); //
@@ -58,6 +58,7 @@ Route::group(['prefix'=>'administrator','middleware'=>'admin'], function () {
     Route::post('sendmessagemain',[App\Http\Controllers\back\DashboardController::class, 'sendmain'])->name('messages.send.main');
     Route::get('mainmessage',[App\Http\Controllers\back\DashboardController::class, 'mainmessage'])->name('mainmessage');
     Route::get('extend_factor/{id}',[App\Http\Controllers\back\FactorController::class, 'generate_pdf'])->name('generate_pdf');
+    Route::post('productCount/{id}',[App\Http\Controllers\back\ProductController::class, 'productCount'])->name('productCount');
 });
 
 Route::group(['prefix'=>'api'], function () {
@@ -66,4 +67,5 @@ Route::group(['prefix'=>'api'], function () {
     Route::post('searchProducts',[App\Http\Controllers\front\HomeController::class, 'apiGetProducts']);
     Route::post('messageapi',[App\Http\Controllers\front\HomeController::class, 'messageApi']);
     Route::get('chart',[App\Http\Controllers\back\DashboardController::class, 'chartApi']);
+    Route::post('exist',[App\Http\Controllers\back\ProductController::class, 'existApi']);
 });

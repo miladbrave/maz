@@ -100,7 +100,7 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        $photos = Photo::where('product_id',$product->id)->get();
+        $photos = Photo::where('product_id', $product->id)->get();
         if ($photos) {
             foreach ($photos as $photo) {
                 unlink(getcwd() . $photo->path);
@@ -166,6 +166,30 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $response = ['products' => $products];
-        return response()->json( $response , 200);
+        return response()->json($response, 200);
+    }
+
+    public function productCount(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->count = $request->count;
+        $product->save();
+
+        return redirect()->route('product.index');
+    }
+
+    public function existApi(Request $request)
+    {
+        $product = Product::findOrFail($request->id);
+        if ($request->checkbox == "true") {
+            $product->exist = 1;
+            $product->save();}
+        if ($request->checkbox == "false") {
+            $product->exist = 2;
+            $product->save();}
+
+        return response()->json([
+            'status' => "ok",
+        ]);
     }
 }

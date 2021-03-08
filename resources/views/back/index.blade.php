@@ -14,9 +14,26 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="row col-with-divider">
-                                        <div class="text-center stack-order">
-                                            <h3 class="no-margins">{{$users->count()}} نفر</h3>
+                                        <div class="col-xs-6 text-center stack-order">
+                                            <h3 class="no-margins">{{$users->count()}}</h3>
+                                            <small>نفر</small>
                                         </div>
+                                        <div class="col-xs-6 text-center stack-order">
+                                            <h3 class="no-margins">{{$online->count()}}</h3>
+                                            <small>آنلاین</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 animatedParent animateOnce z-index-48">
+                            <div class="panel minimal panel-default animated fadeInUp">
+                                <div class="panel-heading clearfix">
+                                    <div class="panel-title">تعداد بازدید</div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="stack-order">
+                                        <h3 class="no-margins">{{(int)($visit/2)}} عدد </h3>
                                     </div>
                                 </div>
                             </div>
@@ -28,7 +45,8 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="stack-order">
-                                        <h2 class="no-margins">{{number_format($totalrecive->sum('totalprice'))}} ریال </h2>
+                                        <h2 class="no-margins">{{number_format($totalrecive->sum('totalprice'))}}
+                                            ریال </h2>
                                     </div>
                                 </div>
                             </div>
@@ -36,27 +54,23 @@
                         <div class="col-md-3 animatedParent animateOnce z-index-48">
                             <div class="panel minimal panel-default animated fadeInUp">
                                 <div class="panel-heading clearfix">
-                                    <div class="panel-title"> فاکتور های صادر شده</div>
+                                    <div class="panel-title"> فاکتور و اقلام فروخته شده</div>
                                 </div>
                                 <div class="panel-body">
-                                    <div class="stack-order">
-                                        <h3 class="no-margins">{{$totalrecive->count()}} عدد فاکتور </h3>
+                                    <div class="row col-with-divider">
+                                        <div class="col-xs-6 text-center stack-order">
+                                            <h3 class="no-margins">{{$totalrecive->count()}} </h3>
+                                            <small>عدد فاکتور</small>
+                                        </div>
+                                        <div class="col-xs-6 text-center stack-order">
+                                            <h3 class="no-margins">{{array_sum($purchlists)}} </h3>
+                                            <small>عدد جنس</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 animatedParent animateOnce z-index-48">
-                            <div class="panel minimal panel-default animated fadeInUp">
-                                <div class="panel-heading clearfix">
-                                    <div class="panel-title">تعداد اقلام فروخته شده</div>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="stack-order">
-                                        <h3 class="no-margins">{{$totalrecive->sum('count')}} عدد </h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
 
@@ -93,14 +107,16 @@
 @endsection
 
 <script>
-    window.onload = function () {char();};
+    window.onload = function () {
+        char();
+    };
+
     function char() {
         $.ajax({
             type: 'get',
             url: '/api/chart',
             dataType: "json",
-            success: function (result, textStatus, jqXHR)
-            {
+            success: function (result, textStatus, jqXHR) {
                 console.log(result);
                 var data = [];
                 data.push(result.price);
@@ -114,6 +130,7 @@
         // labels = ['فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور', 'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'];
         // renderChart(data, labels);
     }
+
     function renderChart(data, labels) {
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {

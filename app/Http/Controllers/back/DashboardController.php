@@ -4,18 +4,24 @@ namespace App\Http\Controllers\back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Message;
+use App\Models\Purchlist;
 use App\Models\User;
 use App\Models\Userlist;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
     public function index()
     {
+        $online = User::online()->get();
+        $visit =  DB::table('shetabit_visits')->count();
         $users = User::all();
         $totalrecive = Userlist::where('status','success')->get();
-        return view('back.index',compact('users','totalrecive'));
+        $purchlists = Purchlist::whereIn('factor_number',$totalrecive->pluck('id'))->pluck('count')->toArray();
+
+        return view('back.index',compact('users','totalrecive','online','visit','purchlists'));
     }
 
     public function sendmain(Request $request)

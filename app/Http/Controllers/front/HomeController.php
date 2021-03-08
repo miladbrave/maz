@@ -26,6 +26,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+        visitor()->visit();
+
         $sliders = Slider::where('distribute', 'انتشار')->get();
         $products = Product::where('distribute', 'انتشار')->get();
         $banners = Banner::where('distribute', 'انتشار')->get();

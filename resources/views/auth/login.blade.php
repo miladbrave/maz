@@ -45,19 +45,21 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-8">
+                            <div class="form-group row ">
+                                <div class="col-md-8 text-center">
                                     <div >
                                         <button type="submit" class="btn btn-primary">
                                             ورود
                                         </button>
-
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                                                فراموشی رمز
-                                            </a>
-                                        @endif
+                                        <a href="{{route('register')}}"  class="btn btn-primary">
+                                            ثبت نام
+                                        </a>
                                         <div class="form-check">
+                                            @if (Route::has('password.request'))
+                                                <a class="btn btn-link ml-3" href="{{ route('password.request') }}">
+                                                    فراموشی رمز
+                                                </a>
+                                            @endif
                                             <input class="form-check-input" type="checkbox" name="remember"
                                                    id="remember" {{ old('remember') ? 'checked' : '' }}>
                                             <label class="form-check-label order-md-2" for="remember">
